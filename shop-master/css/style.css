@@ -1943,7 +1943,364 @@ body {
     top: 10%;                 /* Daha yukarı */
 }
 
+#fh5co-logo a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #000 !important;
+}
 
+/* Logoyu sağa kaydırma */
+#fh5co-logo {
+    position: relative;
+    left: 40px;   /* tam çalışan çözüm */
+}
+
+/* Üst menü yazı stili */
+.menu-1 ul li a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #222 !important;
+}
+
+/* Menü hover rengi */
+.menu-1 ul li a:hover {
+    color: #d8b76b !important;
+}
+
+/* Sağdaki barı sola çekme */
+.menu-2 {
+    position: relative;
+    right: 40px;  /* 20–60 arası oynatabilirsin */
+}
+.dropdown li a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 10px 18px !important;
+}
+
+.dropdown {
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Dropdown arka planını beyaz yap */
+.fh5co-nav .dropdown {
+    background: #ffffff !important;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Dropdown içindeki yazılar */
+.fh5co-nav .dropdown li a {
+    color: #333 !important;
+    font-weight: 400;
+    padding: 10px 15px;
+}
+
+/* Hover efekti */
+.fh5co-nav .dropdown li a:hover {
+    background: #caa13b !important;
+    color: #fff !important;
+}
+
+/* Dropdown okunu tamamen iptal et */
+.fh5co-nav ul li.has-dropdown > a:after,
+.fh5co-nav ul li.has-dropdown > a:before,
+.dropdown:before,
+.dropdown:after {
+    display: none !important;
+    content: none !important;
+}
+/* Dropdown genişliğini arttır ve yazıları rahatlat */
+.fh5co-nav .dropdown {
+    width: 240px !important;     /* Menü genişliği */
+    padding: 15px 20px !important;
+}
+.fh5co-nav .dropdown li a {
+    white-space: nowrap !important; /* Satır bölünmesini engelle */
+}
+.fh5co-nav .dropdown li a {
+    display: block !important;
+    width: 100% !important;
+}
+.fh5co-nav .dropdown {
+    border-radius: 12px !important;
+}
+.fh5co-nav .dropdown li a:hover {
+    border-radius: 8px !important;
+}
+/* Search input yazı boyutu */
+.fh5co-nav .input-group input {
+    font-size: 16px !important;
+    height: 38px !important;
+}
+
+/* Search icon büyütme */
+.fh5co-nav .icon-search {
+    font-size: 20px !important;
+}
+
+/* Search buton yüksekliği */
+.fh5co-nav .input-group-btn .btn {
+    height: 38px !important;
+    padding: 6px 12px !important;
+}
+
+/* Sepet ikonunu büyütme */
+.fh5co-nav .icon-shopping-cart {
+    font-size: 22px !important;
+}
+
+/* Sepetteki sayıyı büyütme */
+.fh5co-nav .shopping-cart small {
+    font-size: 14px !important;
+    font-weight: bold;
+    top: -5px; /* sayı yukarı taşsın */
+    position: relative;
+}
+
+.product-price {
+    font-size: 30px;
+    font-weight: 700;
+    color: #3d8c3f;  /* DOĞAL OUTDOOR YEŞİL */
+    margin-bottom: 25px;
+}
+
+.product-buttons .btn-primary {
+    background: #3d8c3f !important;
+    border-color: #3d8c3f !important;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 6px;
+}
+
+.product-buttons .btn-primary:hover {
+    background: #347536 !important;
+    border-color: #347536 !important;
+}
+.product-image-wrapper {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.product-image-wrapper img {
+    width: 100%;
+    transition: transform .4s ease;
+}
+
+.product-image-wrapper:hover img {
+    transform: scale(1.13); /* yakınlaştırma */
+}
+
+/* ÜRÜN DETAY YAZI STİLİ – GÜÇLÜ SEÇİCİLER */
+.product-detail-content h2,
+.product-detail-content h3,
+.product-detail-content h4,
+.product-detail-content p,
+.product-detail-content li,
+.product-detail-content td,
+.product-detail-content th {
+    font-size: 18px !important;
+    color: #333 !important;
+    line-height: 1.6 !important;
+    font-family: "Segoe UI", sans-serif !important;
+}
+
+/* Yeşil başlık rengi */
+.product-detail-content h2,
+.product-detail-content h3 {
+    color: #3c8d40 !important;   /* güzel bir outdoor yeşili */
+    font-weight: 600 !important;
+}
+
+/* Tablo için modern stil */
+.product-spec-table td,
+.product-spec-table th {
+    padding: 12px 15px !important;
+    border-color: #d5e5d4 !important;
+    background: #f9fff8 !important;
+    font-size: 17px !important;
+}
+.product-detail-content h4,
+.product-detail-content .description-title {
+    font-weight: 700 !important;
+    color: #222 !important;
+}
+
+.product-detail-content p {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+}
+.product-spec-title {
+    font-size: 22px !important;
+    color: #222 !important;
+    font-weight: 600 !important;
+    margin-bottom: 15px !important;
+    text-align: left !important;
+}
+.product-spec-table {
+    width: 100%;
+    border-collapse: collapse !important;
+    margin-top: 10px !important;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.product-spec-table th,
+.product-spec-table td {
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+    color: #333 !important;
+    border: 1px solid #e5e5e5 !important;
+    background: #fafafa !important;
+}
+.product-title {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #b38a18 !important; /* Koyu sarı */
+    margin-bottom: 15px !important;
+    display: block;
+}
+
+/* Ürün kart tasarımı */
+.product-list {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #ffffff;
+    transition: all 0.25s ease;
+}
+
+.product-list:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
+
+.product-list h3 a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+}
+
+.product-list h3 a:hover {
+    color: #d6a84f; /* senin sevdiğin sarının koyusu */
+}
+
+.product-list .text-muted {
+    font-size: 15px;
+    color: #777;
+    font-family: 'Poppins', sans-serif;
+}
+
+.product-list .price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #d6a84f; /* sarı renk */
+}
+
+/* Detay Butonu */
+.product-list .btn-primary {
+    background-color: #d6a84f !important;
+    border: none !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.product-list .btn-primary:hover {
+    background-color: #b48d3f !important;
+}
+
+/* Başlık */
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* ------------------------------
+   ÜRÜN LİSTE TASARIMI (MODERN)
+--------------------------------*/
+
+.product-list-item {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #ffffff;
+    transition: all 0.25s ease;
+    margin-bottom: 35px !important;
+}
+
+.product-list-item:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    transform: translateY(-4px);
+}
+
+/* Ürün başlığı */
+.product-list-item h3 a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none !important;
+}
+
+.product-list-item h3 a:hover {
+    color: #d6a84f; /* altın sarısı koyu */
+}
+
+/* Açıklama yazısı */
+.product-list-item .text-muted {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #777 !important;
+}
+
+/* Fiyat */
+.product-list-item .price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #d6a84f; /* altın sarısı */
+}
+
+/* Detay butonu */
+.product-list-item .btn-primary {
+    background-color: #d6a84f !important;
+    border: none !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 6px;
+}
+
+.product-list-item .btn-primary:hover {
+    background-color: #b48d3f !important;
+}
+
+/* Yüksek irtifa ürün görseli düzeltme */
+.product-grid {
+    width: 100% !important;
+    height: 260px !important;          /* daha büyük, taşma yok */
+    background-size: contain !important;  /* tam sığdırır, kesmez */
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border-radius: 10px;
+}
+
+
+/* Ürün görseli düzeltme */
+.product-image {
+    width: 100%;
+    height: 280px;              /* sabit yükseklik */
+    object-fit: contain;        /* resim TAM SİĞSIN + kesilmesin */
+    border-radius: 12px;
+    background: #fafafa;
+    padding: 10px;              /* resim kutuya değmesin */
+}
 
 
 
