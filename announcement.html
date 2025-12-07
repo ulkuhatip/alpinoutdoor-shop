@@ -12,13 +12,23 @@
         .announcement-box {
             max-width: 800px;
             margin: 120px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background:#fff;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
         }
         h2 { color:#b48d3f; font-weight:600; }
         .date { color:#777; margin-bottom:20px; }
+        .file-download {
+            display:inline-block;
+            margin-top:15px;
+            padding:10px 20px;
+            background:#b48d3f;
+            color:white;
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:600;
+        }
     </style>
 </head>
 
@@ -31,23 +41,60 @@
 </nav>
 
 <div class="announcement-box">
-    <h2>📢 Kış Sezonu Büyük İndirimleri Başladı!</h2>
-    <p class="date">Yayınlanma: 05 Aralık 2025</p>
+    <h2 id="annTitle"></h2>
+    <p class="date" id="annDate"></p>
+    <p id="annContent"></p>
+    <a id="fileLink" class="file-download" target="_blank" style="display:none;">📄 Dosyayı İndir</a>
 
-    <p>
-        AlpinOutdoor® olarak kış sezonu için özel fırsatlar sunuyoruz!
-        Tüm mont, polar, bot ve yüksek irtifa ekipmanlarında 
-        <strong>%30’a varan indirimler</strong> başladı.
-    </p>
-
-    <p>
-        Kamp & dağcılık ekipmanlarında da özel fırsatlar mevcut.
-        Detaylar için kategorileri ziyaret etmeyi unutmayın.
-    </p>
-
-    <br>
+    <br><br>
     <a href="index.html" class="btn btn-primary">Ana Sayfaya Dön</a>
 </div>
+
+<script>
+// URL'deki id değerini al
+const params = new URLSearchParams(window.location.search);
+const id = Number(params.get("id"));
+
+// JSON'dan duyuru oku
+fetch("data/announcements.json")
+  .then(res => res.json())
+  .then(anns => {
+
+    // ID eşleşen duyuruyu bul
+    let ann = anns.find(a => a.id === id);
+
+    if (!ann) {
+        document.querySelector(".announcement-box").innerHTML = `
+            <h2>Duyuru Bulunamadı</h2>
+            <a href="index.html" class="btn btn-primary">Ana Sayfaya Dön</a>
+        `;
+        return;
+    }
+
+    // Başlık
+    document.getElementById("annTitle").innerText = ann.title;
+
+    // Tarih
+    document.getElementById("annDate").innerText = "Yayınlanma: " + ann.date;
+
+    // İçerik
+    document.getElementById("annContent").innerText = ann.content;
+
+    // Dosya varsa göster
+    if (ann.file) {
+        const link = document.getElementById("fileLink");
+        link.style.display = "inline-block";
+        link.href = ann.file.url;
+        link.innerText = "📄 " + ann.file.name + " (İndir)";
+    }
+  })
+  .catch(() => {
+      document.querySelector(".announcement-box").innerHTML = `
+          <h2>Duyuru Verisi Yüklenemedi</h2>
+          <a href="index.html" class="btn btn-primary">Ana Sayfaya Dön</a>
+      `;
+  });
+</script>
 
 </body>
 </html>

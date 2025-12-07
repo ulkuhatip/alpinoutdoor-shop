@@ -69,12 +69,19 @@ td { padding:12px; border-bottom:1px solid #ddd; }
 <h1>Duyuru Yönetimi</h1>
 
 <div class="form-box">
-    <h3>Yeni Duyuru Ekle</h3>
-
     <input type="text" id="title" placeholder="Duyuru Başlığı">
-    <textarea id="content" rows="4" placeholder="Duyuru içeriği"></textarea>
+<textarea id="content" rows="4" placeholder="Duyuru içeriği"></textarea>
 
-    <button onclick="addAnnouncement()">Duyuruyu Ekle</button>
+
+<input type="file" id="fileInput" accept=".pdf,.doc,.docx,.jpg,.png,.jpeg">
+
+<button onclick="addAnnouncement()">Duyuruyu Ekle</button>
+<button onclick="downloadJSON()" 
+        style="margin-top:10px; background:#333; color:#fff; padding:10px; border:none; border-radius:6px;">
+    JSON Olarak İndir
+</button>
+
+
 </div>
 
 <div class="table-box">
@@ -102,13 +109,24 @@ function save() {
 function addAnnouncement() {
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
+    const fileInput = document.getElementById("fileInput").files[0];
 
     if (!title || !content) return alert("Lütfen tüm alanları doldurun!");
+
+    let fileData = null;
+
+    if (fileInput) {
+        fileData = {
+            name: fileInput.name,
+            url: URL.createObjectURL(fileInput)
+        };
+    }
 
     announcements.push({
         id: Date.now(),
         title,
         content,
+        file: fileData,
         date: new Date().toLocaleString("tr-TR")
     });
 
@@ -138,7 +156,17 @@ function render() {
 }
 
 render();
+
+function downloadJSON() {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(announcements, null, 2));
+    const dl = document.createElement("a");
+    dl.href = dataStr;
+    dl.download = "announcements.json";
+    dl.click();
+}
+
 </script>
+
 
 </body>
 </html>
