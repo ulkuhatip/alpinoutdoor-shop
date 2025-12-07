@@ -106,21 +106,24 @@
 
 <!-- LOGIN KONTROL -->
 <script>
-if (localStorage.getItem("adminLogged") !== "true") {
-    window.location.href = "login.html";
-}
+  if (!localStorage.getItem("adminLogged")) {
+      window.location.href = "../login.html";
+  }
 </script>
+
 
 
 <!-- SIDEBAR -->
 <div class="sidebar">
     <h2>Admin</h2>
 
-    <a href="dashboard.html">📊 Dashboard</a>
-    <a href="products.html">🛒 Ürün Yönetimi</a>
-    <a href="messages.html">📨 Mesajlar</a>
+    <a href="admin-dashboard.html">📊 Dashboard</a>
+    <a href="admin-products.html">🛒 Ürün Yönetimi</a>
+    <a href="admin-messages.html">📨 Mesajlar</a>
+    <a href="admin-announcements.html">📢 Duyurular</a>
     <a href="../index.html">🏠 Siteye Dön</a>
 </div>
+
 
 
 <!-- MAIN CONTENT -->

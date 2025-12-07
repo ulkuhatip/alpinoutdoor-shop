@@ -1,116 +1,146 @@
 <!DOCTYPE HTML>
 <html lang="tr">
 <head>
-	<meta charset="utf-8">
-	<title>İletişim | AlpinOutdoor®</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>İletişim | AlpinOutdoor®</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 </head>
 
 <body>
 
-<div class="fh5co-loader"></div>
 
 <div id="page">
 
-	<!-- NAVBAR -->
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container">
-			<div class="row">
+    <!-- NAVBAR -->
+    <nav class="fh5co-nav" role="navigation">
+        <div class="container">
+            <div class="row">
 
-				<div class="col-md-3 col-xs-2">
-					<div id="fh5co-logo"><a href="index.html">AlpinOutdoor®</a></div>
-				</div>
+                <div class="col-md-3 col-xs-2">
+                    <div id="fh5co-logo"><a href="index.html">AlpinOutdoor®</a></div>
+                </div>
 
-				<div class="col-md-6 col-xs-6 text-center menu-1">
-					<ul>
-						<li><a href="cadir.html">Çadırlar</a></li>
-						<li><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
-						<li class="has-dropdown"><a href="services.html">Giyim</a></li>
-						<li class="active"><a href="contact.html">İletişim</a></li>
-					</ul>
-				</div>
+                <div class="col-md-6 col-xs-6 text-center menu-1">
+                    <ul>
+                        <li><a href="cadir.html">Çadırlar</a></li>
+                        <li><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
+                        <li class="has-dropdown"><a href="services.html">Giyim</a></li>
+                        <li class="active"><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
 
-			</div>
-		</div>
-	</nav>
+            </div>
+        </div>
+    </nav>
 
-	<!-- HEADER -->
-	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" 
-	style="background-image:url(images/contact-bg.jpg);">
-		<div class="overlay"></div>
-		<div class="container text-center">
-			<h1 class="animate-box">İletişim</h1>
-			<h2 class="animate-box">Bize Ulaşın</h2>
-		</div>
-	</header>
+    <!-- HEADER -->
+    <header id="fh5co-header" 
+class="fh5co-cover fh5co-cover-sm" 
+style="background-image:url(images/arkaplan.jpg); height: 420px;">
 
-	<!-- CONTACT -->
-	<div id="fh5co-contact">
-		<div class="container">
+    <div class="overlay" style="
+        background: rgba(0,0,0,0.35);
+        backdrop-filter: blur(2px);
+    "></div>
 
-			<div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center" style="margin-top:140px;">
+                
+                <h1 class="animate-box" style="
+                    font-size: 48px;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    color: white;
+                    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+                ">
+                    İletişim
+                </h1>
 
-				<div class="col-md-5 animate-box">
-					<div class="fh5co-contact-info">
-						<h3>İletişim Bilgileri</h3>
-						<ul>
-							<li class="address">Kocaeli, Türkiye</li>
-							<li class="phone"><a href="#">+90 555 000 00 00</a></li>
-							<li class="email"><a href="#">info@alpinoutdoor.com</a></li>
-							<li class="url"><a href="#">www.alpinoutdoor.com</a></li>
-						</ul>
-					</div>
-				</div>
+                <p style="
+                    font-size: 22px;
+                    color: #f5f5f5;
+                    margin-top: 10px;
+                    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+                ">
+                    Bize Ulaşın
+                </p>
 
-				<div class="col-md-6 animate-box">
-					<h3>Mesaj Gönder</h3>
+            </div>
+        </div>
+    </div>
 
-					<form id="contactForm">
+</header>
 
-						<div class="form-group">
-							<label>Ad Soyad</label>
-							<input type="text" id="name" class="form-control" required>
-						</div>
 
-						<div class="form-group">
-							<label>E-mail</label>
-							<input type="email" id="email" class="form-control" required>
-						</div>
+    <!-- CONTACT -->
+    <div id="fh5co-contact">
+        <div class="container">
 
-						<div class="form-group">
-							<label>Konu</label>
-							<input type="text" id="subject" class="form-control" required>
-						</div>
+            <div class="row">
 
-						<div class="form-group">
-							<label>Mesaj</label>
-							<textarea id="message" class="form-control" rows="6" required></textarea>
-						</div>
+                <div class="col-md-5 animate-box">
+                    <div class="fh5co-contact-info">
+                        <h3>İletişim Bilgileri</h3>
+                        <ul>
+                            <li class="address">Kocaeli, Türkiye</li>
+                            <li class="phone"><a href="#">+90 555 000 00 00</a></li>
+                            <li class="email"><a href="#">info@alpinoutdoor.com</a></li>
+                            <li class="url"><a href="#">www.alpinoutdoor.com</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-						<button type="submit" class="btn btn-primary">Gönder</button>
+                <div class="col-md-6 animate-box">
+                    <h3>Mesaj Gönder</h3>
 
-					</form>
-				</div>
+                    <form id="contactForm">
 
-			</div>
+                        <div class="form-group">
+                            <label>Ad Soyad</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
 
-		</div>
-	</div>
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
 
-	<!-- MAP ALANI -->
-	<div id="map" style="width:100%; height:350px; margin-top:40px;"></div>
+                        <div class="form-group">
+                            <label>Konu</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
 
-	<!-- FOOTER -->
-	<footer id="fh5co-footer" role="contentinfo">
-		<div class="container text-center">
-			<p>&copy; 2025 AlpinOutdoor®. Tüm Hakları Saklıdır.</p>
-		</div>
-	</footer>
+                        <div class="form-group">
+                            <label>Mesaj</label>
+                            <textarea id="message" class="form-control" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Gönder</button>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MAP ALANI -->
+    <div id="map" style="height: 350px; border-radius: 10px; margin-top:20px;"></div>
+
+    <!-- FOOTER -->
+    <footer id="fh5co-footer" role="contentinfo">
+        <div class="container text-center">
+            <p>&copy; 2025 AlpinOutdoor®. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
 
 </div>
 
@@ -118,54 +148,42 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
-<!-- MESAJ KAYDETME SİSTEMİ -->
+<!-- MESAJ KAYDETME -->
 <script>
 document.getElementById("contactForm").addEventListener("submit", function(e){
-	e.preventDefault();
+    e.preventDefault();
 
-	let name = document.getElementById("name").value;
-	let email = document.getElementById("email").value;
-	let subject = document.getElementById("subject").value;
-	let message = document.getElementById("message").value;
+    let messages = JSON.parse(localStorage.getItem("messages") || "[]");
 
-	let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.push({
+        id: Date.now(),
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+        date: new Date().toLocaleString("tr-TR")
+    });
 
-	messages.push({
-		id: Date.now(),
-		name: name,
-		email: email,
-		subject: subject,
-		message: message,
-		date: new Date().toLocaleString("tr-TR")
-	});
+    localStorage.setItem("messages", JSON.stringify(messages));
 
-	localStorage.setItem("messages", JSON.stringify(messages));
-
-	alert("Mesajınız başarıyla gönderildi!");
-	this.reset();
+    alert("Mesajınız başarıyla gönderildi!");
+    this.reset();
 });
 </script>
 
-<!-- GOOGLE MAPS -->
+<!-- LEAFLET HARİTA -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
 <script>
-function initMap() {
-	const location = { lat: 40.8533, lng: 29.8815 };
+var map = L.map('map').setView([40.8533, 29.8815], 12);
 
-	const map = new google.maps.Map(document.getElementById("map"), {
-		zoom: 12,
-		center: location,
-	});
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+}).addTo(map);
 
-	new google.maps.Marker({
-		position: location,
-		map: map,
-		title: "AlpinOutdoor® - Kocaeli"
-	});
-}
-</script>
-
-<script async defer 
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-KEY-BURAYA-GELECEK&callback=initMap">
+L.marker([40.8533, 29.8815]).addTo(map)
+    .bindPopup("AlpinOutdoor® - Kocaeli")
+    .openPopup();
 </script>
 
 </body>

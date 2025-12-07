@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Duyuru Yönetimi | Admin Paneli</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body { margin:0; font-family:Poppins, sans-serif; background:#f4f4f4; }
+.sidebar {
+    width:230px; height:100vh; background:#222; color:#fff;
+    position:fixed; left:0; top:0; padding:20px;
+}
+.sidebar a { display:block; padding:12px; color:#ddd; text-decoration:none; margin-bottom:8px; }
+.sidebar a:hover { background:#b48d3f; color:#fff; }
+
+.main { margin-left:250px; padding:30px; }
+h1 { font-size:26px; margin-bottom:25px; }
+
+.form-box {
+    background:#fff; padding:20px; border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom:30px;
+}
+.form-box input, .form-box textarea {
+    width:100%; padding:12px; margin:8px 0;
+    border:1px solid #ccc; border-radius:8px;
+}
+.form-box button {
+    padding:12px 20px; background:#b48d3f; color:#fff;
+    border:none; border-radius:8px; cursor:pointer;
+}
+.table-box {
+    background:#fff; border-radius:12px; overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+table { width:100%; border-collapse:collapse; }
+th { background:#333; color:#fff; padding:12px; }
+td { padding:12px; border-bottom:1px solid #ddd; }
+
+.btn-del {
+    padding:6px 12px; background:#c0392b; color:#fff; border:none; border-radius:6px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+  if (!localStorage.getItem("adminLogged")) {
+      window.location.href = "../login.html";
+  }
+</script>
+
+
+<div class="sidebar">
+    <h2>Admin</h2>
+    <a href="admin-dashboard.html">📊 Dashboard</a>
+    <a href="admin-products.html">🛒 Ürün Yönetimi</a>
+    <a href="admin-messages.html">📨 Mesajlar</a>
+    <a href="admin-announcements.html"><b>📢 Duyurular</b></a>
+    <a href="../index.html">🏠 Siteye Dön</a>
+
+</div>
+
+<div class="main">
+
+<h1>Duyuru Yönetimi</h1>
+
+<div class="form-box">
+    <h3>Yeni Duyuru Ekle</h3>
+
+    <input type="text" id="title" placeholder="Duyuru Başlığı">
+    <textarea id="content" rows="4" placeholder="Duyuru içeriği"></textarea>
+
+    <button onclick="addAnnouncement()">Duyuruyu Ekle</button>
+</div>
+
+<div class="table-box">
+<table>
+    <thead>
+        <tr>
+            <th>Başlık</th>
+            <th>Tarih</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody id="annTable"></tbody>
+</table>
+</div>
+
+</div>
+
+<script>
+let announcements = JSON.parse(localStorage.getItem("announcements") || "[]");
+
+function save() {
+    localStorage.setItem("announcements", JSON.stringify(announcements));
+}
+
+function addAnnouncement() {
+    const title = document.getElementById("title").value;
+    const content = document.getElementById("content").value;
+
+    if (!title || !content) return alert("Lütfen tüm alanları doldurun!");
+
+    announcements.push({
+        id: Date.now(),
+        title,
+        content,
+        date: new Date().toLocaleString("tr-TR")
+    });
+
+    save();
+    render();
+    alert("Duyuru eklendi!");
+}
+
+function deleteAnnouncement(id) {
+    announcements = announcements.filter(a => a.id !== id);
+    save();
+    render();
+}
+
+function render() {
+    const table = document.getElementById("annTable");
+    table.innerHTML = "";
+
+    announcements.forEach(a => {
+        table.innerHTML += `
+        <tr>
+            <td>${a.title}</td>
+            <td>${a.date}</td>
+            <td><button class="btn-del" onclick="deleteAnnouncement(${a.id})">Sil</button></td>
+        </tr>`;
+    });
+}
+
+render();
+</script>
+
+</body>
+</html>

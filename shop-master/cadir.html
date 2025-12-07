@@ -71,7 +71,12 @@
                                 </span>
                             </div>
                         </li>
-                        <li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
+                        <li class="shopping-cart">
+    <a href="cart.html" class="cart">
+        <span><small>0</small><i class="icon-shopping-cart"></i></span>
+    </a>
+</li>
+
                     </ul>
                 </div>
             </div>
@@ -160,6 +165,8 @@
                     <p><strong>Mevsim:</strong> 3 Mevsim &nbsp; | &nbsp; <strong>Kapasite:</strong> 4–5 Kişi &nbsp; | &nbsp; <strong>Marka:</strong> Evolite</p>
                     <p><span class="price">9.753,89₺</span> <small class="text-muted"></small></p>
                     <a href="evolite-excamp5.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+                    <button class="btn btn-success btn-sm" onclick="addToCart('Evolite Excamp 5 Pro', 9753.89)">Sepete Ekle</button>
+
                 </div>
             </div>
 
@@ -180,6 +187,8 @@
                     <p><strong>Mevsim:</strong> 4 Mevsim &nbsp; | &nbsp; <strong>Kapasite:</strong> 2 Kişi &nbsp; | &nbsp; <strong>Marka:</strong> Evolite</p>
                     <p><span class="price">5.121,37₺</span> <small class="text-muted"></small></p>
                     <a href="evolite-excamp2.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+                    <button class="btn btn-success btn-sm" onclick="addToCart('Evolite Excamp 2 Pro', 5121.89)">Sepete Ekle</button>
+
                 </div>
             </div>
 
@@ -200,6 +209,8 @@
                     <p><strong>Mevsim:</strong> 4 Mevsim &nbsp; | &nbsp; <strong>Kapasite:</strong> 2 Kişi &nbsp; | &nbsp; <strong>Marka:</strong> Husky</p>
                     <p><span class="price">12.872,49₺</span></p>
                     <a href="husky-bronder.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+                    <button class="btn btn-success btn-sm" onclick="addToCart('husky-bronder', 12872)">Sepete Ekle</button>
+
                 </div>
             </div>
 
@@ -220,6 +231,8 @@
                     <p><strong>Mevsim:</strong> 4 Mevsim &nbsp; | &nbsp; <strong>Kapasite:</strong> 4 Kişi &nbsp; | &nbsp; <strong>Marka:</strong> Naturehike</p>
                     <p><span class="price">7.500,00 ₺</span></p>
                     <a href="naturehike-pseries4.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+                    <button class="btn btn-success btn-sm" onclick="addToCart('Naturehike', 7500)">Sepete Ekle</button>
+
                 </div>
             </div>
 
@@ -240,6 +253,8 @@
                     <p><strong>Mevsim:</strong> 4 Mevsim &nbsp; | &nbsp; <strong>Kapasite:</strong> 1 Kişi &nbsp; | &nbsp; <strong>Marka:</strong> Trimm</p>
                     <p><span class="price">8.094,90₺</span></p>
                     <a href="trimm-solo.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+                    <button class="btn btn-success btn-sm" onclick="addToCart('Trimm', 8094)">Sepete Ekle</button>
+
                 </div>
             </div>
 
@@ -260,6 +275,8 @@
                     <p><strong>Mevsim:</strong> 5 Mevsim &nbsp; | &nbsp; <strong>Kapasite:</strong> 3 Kişi &nbsp; | &nbsp; <strong>Marka:</strong> The North Face</p>
                     <p><span class="price">73.249,00₺</span> <small class="text-muted"></small></p>
                     <a href="tnf-ve25.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+                    <button class="btn btn-success btn-sm" onclick="addToCart('NorthFace', 73249)">Sepete Ekle</button>
+
                 </div>
             </div>
 
@@ -280,6 +297,8 @@
                     <p><strong>Mevsim:</strong> 5 Mevsim &nbsp; | &nbsp; <strong>Kapasite:</strong> 3+1 Kişi &nbsp; | &nbsp; <strong>Marka:</strong> Husky</p>
                     <p><span class="price">20.142,09₺</span></p>
                     <a href="husky-fighter.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+                    <button class="btn btn-success btn-sm" onclick="addToCart('husky-fighter', 20142)">Sepete Ekle</button>
+
                 </div>
             </div>
 
@@ -330,6 +349,26 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
 <script src="js/main.js"></script>
+
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+function addToCart(name, price) {
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert("Ürün sepete eklendi!");
+}
+
+function updateCartCount() {
+    const count = cart.length;
+    const cartIcon = document.querySelector(".shopping-cart small");
+    if(cartIcon) cartIcon.textContent = count;
+}
+
+updateCartCount();
+</script>
 
 </body>
 </html>

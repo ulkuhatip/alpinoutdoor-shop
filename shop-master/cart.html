@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sepetim | AlpinOutdoor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .cart-container {
+            max-width: 900px;
+            margin: 120px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        table th { background:#b48d3f; color:#fff; }
+        table td, table th { padding:12px; }
+        .btn-del {
+            background:#c0392b; color:#fff; padding:6px 12px; border:none; border-radius:6px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="fh5co-nav" role="navigation">
+    <div class="container">
+        <div id="fh5co-logo"><a href="index.html">AlpinOutdoor®</a></div>
+    </div>
+</nav>
+
+<div class="cart-container">
+    <h2>🛒 Sepetiniz</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th>Fiyat</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody id="cartTable"></tbody>
+    </table>
+
+    <h3>Toplam: <span id="totalPrice">0</span> TL</h3>
+
+    <button onclick="clearCart()" class="btn btn-danger">Sepeti Boşalt</button>
+    <button onclick="openPayment()" class="btn btn-success" style="margin-left:15px;">Ödeme Yap</button>
+</div>
+
+<script>
+
+function openPayment() {
+    if (cart.length === 0) {
+        alert("Sepetiniz boş!");
+        return;
+    }
+    document.getElementById("paymentModal").style.display = "flex";
+}
+
+function closePayment() {
+    document.getElementById("paymentModal").style.display = "none";
+}
+
+function makePayment() {
+    const num = document.getElementById("cardNumber").value;
+    const date = document.getElementById("cardDate").value;
+    const cvv = document.getElementById("cardCvv").value;
+
+    if (!num || !date || !cvv) {
+        alert("Lütfen tüm alanları doldurun!");
+        return;
+    }
+
+    alert("Ödeme başarılı! Teşekkür ederiz 🎉");
+
+    clearCart();
+    closePayment();
+}
+
+
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+function renderCart() {
+    const table = document.getElementById("cartTable");
+    const totalPrice = document.getElementById("totalPrice");
+    let total = 0;
+
+    table.innerHTML = "";
+
+    cart.forEach((item, idx) => {
+        total += item.price;
+        table.innerHTML += `
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.price} TL</td>
+                <td><button class="btn-del" onclick="deleteItem(${idx})">Sil</button></td>
+            </tr>
+        `;
+    });
+
+    totalPrice.textContent = total.toFixed(2);
+}
+
+function deleteItem(i) {
+    cart.splice(i, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
+
+function clearCart() {
+    localStorage.removeItem("cart");
+    cart = [];
+    renderCart();
+}
+
+renderCart();
+
+</script>
+
+<!-- PAYMENT MODAL -->
+<div id="paymentModal">
+    <div class="payment-box">
+        <h3>Ödeme Bilgileri</h3>
+
+        <input type="text" id="cardNumber" placeholder="Kart Numarası">
+        <input type="text" id="cardDate" placeholder="Son Kullanma (AA/YY)">
+        <input type="text" id="cardCvv" placeholder="CVV">
+
+        <button onclick="makePayment()">Ödemeyi Tamamla</button>
+        <button onclick="closePayment()" style="background:#c0392b; margin-top:10px;">İptal</button>
+    </div>
+</div>
+
+</body>
+</html>

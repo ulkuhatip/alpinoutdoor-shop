@@ -35,13 +35,24 @@
 
 <body>
 
+<script>
+  if (!localStorage.getItem("adminLogged")) {
+      window.location.href = "../login.html";
+  }
+</script>
+
+
 <div class="sidebar">
     <h2>Admin</h2>
+
     <a href="admin-dashboard.html">📊 Dashboard</a>
     <a href="admin-products.html">🛒 Ürün Yönetimi</a>
     <a href="admin-messages.html">📨 Mesajlar</a>
-    <a href="index.html">🏠 Siteye Dön</a>
+    <a href="admin-announcements.html">📢 Duyurular</a>
+    <a href="../index.html">🏠 Siteye Dön</a>
+
 </div>
+
 
 <div class="main">
     <h1>Gelen Mesajlar</h1>
