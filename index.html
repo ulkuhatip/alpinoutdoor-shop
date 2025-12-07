@@ -10,19 +10,7 @@
 	<meta name="author" content="gettemplates.co" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-	<!-- 
-	//////////////////////////////////////////////////////
 
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -96,6 +84,14 @@
 
                     <li><a href="teknik.html">Teknik Malzemeler</a></li>
                     <li><a href="contact.html">İletişim</a></li>
+					<li class="has-dropdown">
+    <a href="#">Hakkımızda</a>
+    <ul class="dropdown">
+        <li><a href="about.html">Vizyon & Misyon</a></li>
+        <li><a href="admin/login.html">Admin</a></li>
+    </ul>
+</li>
+
                 </ul>
             </div>
 
@@ -275,43 +271,51 @@ fetch("data/announcements.json")
   });
 </script>
 
+    <div id="fh5co-services" class="fh5co-bg-section">
+    <div class="container">
+        <div class="row">
 
-	<div id="fh5co-services" class="fh5co-bg-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-sm-4 text-center">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="icon-credit-card"></i>
-						</span>
-						<h3>Credit Card</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
-						<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 text-center">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="icon-wallet"></i>
-						</span>
-						<h3>Save Money</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
-						<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 text-center">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="icon-paper-plane"></i>
-						</span>
-						<h3>Free Delivery</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
-						<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <!-- ÖDEME GÜVENLİĞİ -->
+            <div class="col-md-4 col-sm-4 text-center">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="icon-credit-card"></i>
+                    </span>
+                    <h3>Güvenli Ödeme</h3>
+                    <p>AlpinOutdoor® SSL korumalı altyapısıyla kredi kartı ve banka kartı işlemleriniz %100 güvende. Hızlı, kolay ve güvenilir alışveriş deneyimi.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Detaylı Bilgi</a></p>
+                </div>
+            </div>
+
+            <!-- TASARRUF & FİYAT AVANTAJI -->
+            <div class="col-md-4 col-sm-4 text-center">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="icon-wallet"></i>
+                    </span>
+                    <h3>Avantajlı Fiyatlar</h3>
+                    <p>Outdoor ekipmanlarında sezonluk kampanyalar, özel indirimler ve uygun fiyat seçenekleriyle bütçenizi yormadan kaliteye ulaşın.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Kampanyaları Gör</a></p>
+                </div>
+            </div>
+
+            <!-- HIZLI & ÜCRETSİZ KARGO -->
+            <div class="col-md-4 col-sm-4 text-center">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="icon-paper-plane"></i>
+                    </span>
+                    <h3>Hızlı & Ücretsiz Kargo</h3>
+                    <p>Belirli ürünlerde geçerli ücretsiz kargo fırsatı ve tüm Türkiye’ye hızlı teslimat avantajıyla siparişiniz kısa sürede kapınızda.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Kargo Bilgileri</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+	
 
 	<div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url(images/img_bg_5.jpg);">
 		<div class="container">
@@ -394,12 +398,7 @@ fetch("data/announcements.json")
                 </ul>
             </div>
 
-            <div class="col-md-2">
-                <h4>Yönetim</h4>
-                <ul class="fh5co-footer-links">
-                    <li><a href="admin/admin-dashboard.html">Admin Paneli</a></li>
-                </ul>
-            </div>
+            
 
         </div>
 
