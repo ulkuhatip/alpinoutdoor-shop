@@ -38,17 +38,8 @@
 	                <ul>
 	                    <li><a href="cadir.html">Çadırlar</a></li>
 	                    <li class="active"><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
-
-	                    <li class="has-dropdown">
-	                        <a href="#">Giyim</a>
-	                        <ul class="dropdown">
-	                            <li><a href="#">Montlar & Ceketler</a></li>
-	                            <li><a href="#">Pantolonlar</a></li>
-	                            <li><a href="#">Orta Katmanlar</a></li>
-	                            <li><a href="#">Ayakkabılar</a></li>
-	                            <li><a href="#">Termal İç Giyim</a></li>
-	                        </ul>
-	                    </li>
+                        <li class="active"><a href="services.html">GİYİM</a></li>
+	                    
 
 	                    <li><a href="teknik.html">Teknik Malzemeler</a></li>
 	                    <li><a href="contact.html">İletişim</a></li>
@@ -97,6 +88,8 @@
 			    <p class="text-muted">-40°C yüksek irtifa ekspedisyon tulumu. Kaz tüyü dolgulu.</p>
 			    <p><strong>Fiyat:</strong> 75.249 TL</p>
 			    <a href="tnf-inferno40.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+                <button class="btn btn-success btn-sm" onclick="addToCart('Uyku Tulumu', 75249)">Sepete Ekle</button>
+
 			</div>
 
 		</div>
@@ -118,6 +111,8 @@
 		        <p class="text-muted">Yüksek irtifa ve buzul tırmanışları için ultra dayanıklı taşıma çantası.</p>
 		        <p><strong>Fiyat:</strong> 11.252 TL</p>
 		        <a href="petzl-transport60.html" class="btn btn-sm btn-primary">Detayları Gör</a>
+                <button class="btn btn-success btn-sm" onclick="addToCart('Dağcı Çantası', 11252)">Sepete Ekle</button>
+
 		    </div>
 
 		</div>
@@ -139,6 +134,8 @@
 		        <p class="text-muted">Acil durum ve yüksek irtifa bivak koruması. Ultra hafif.</p>
 		        <p><strong>Fiyat:</strong> 2.865 TL</p>
 		        <a href="ferrino-bivak.html" class="btn btn-sm btn-primary">Detayları Gör</a>
+                <button class="btn btn-success btn-sm" onclick="addToCart('Bivak Torbası', 2865)">Sepete Ekle</button>
+
 		    </div>
 
 		</div>
@@ -168,6 +165,25 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+function addToCart(name, price) {
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert("Ürün sepete eklendi!");
+}
+
+function updateCartCount() {
+    const count = cart.length;
+    const cartIcon = document.querySelector(".shopping-cart small");
+    if(cartIcon) cartIcon.textContent = count;
+}
+
+updateCartCount();
+</script>
 
 </body>
 </html>
