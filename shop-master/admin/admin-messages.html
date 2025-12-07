@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mesaj Yönetimi | AlpinOutdoor Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body { margin: 0; font-family: Poppins, sans-serif; background:#f4f4f4; }
+        .sidebar {
+            width: 230px; height: 100vh; background:#222; color:#fff;
+            position: fixed; left:0; top:0; padding:20px;
+        }
+        .sidebar a { display:block; padding:12px; color:#ddd; text-decoration:none; margin-bottom:8px; }
+        .sidebar a:hover { background:#b48d3f; color:#fff; }
+        .main { margin-left:250px; padding:30px; }
+        table { width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; }
+        th, td { padding:14px; border-bottom:1px solid #ddd; }
+        th { background:#b48d3f; color:#fff; text-align:left; }
+        .btn { padding:6px 12px; border-radius:6px; cursor:pointer; }
+        .btn-view { background:#4CAF50; color:#fff; }
+        .btn-del { background:#c0392b; color:#fff; }
+
+        /* MODAL */
+        .modal-bg {
+            display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+            background:rgba(0,0,0,0.6); justify-content:center; align-items:center;
+        }
+        .modal {
+            background:#fff; padding:25px; border-radius:10px; width:400px;
+        }
+        .close { float:right; cursor:pointer; font-size:20px; }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>Admin</h2>
+    <a href="admin-dashboard.html">📊 Dashboard</a>
+    <a href="admin-products.html">🛒 Ürün Yönetimi</a>
+    <a href="admin-messages.html">📨 Mesajlar</a>
+    <a href="index.html">🏠 Siteye Dön</a>
+</div>
+
+<div class="main">
+    <h1>Gelen Mesajlar</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Gönderen</th>
+                <th>Email</th>
+                <th>Konu</th>
+                <th>Tarih</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody id="messageTable"></tbody>
+    </table>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg">
+    <div class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalName"></h2>
+        <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+        <p><strong>Konu:</strong> <span id="modalSubject"></span></p>
+        <p><strong>Mesaj:</strong><br><span id="modalMessage"></span></p>
+    </div>
+</div>
+
+<script>
+loadMessages();
+
+function loadMessages() {
+    const table = document.getElementById("messageTable");
+    table.innerHTML = "";
+
+    const messages = JSON.parse(localStorage.getItem("messages") || "[]");
+
+    messages.forEach(msg => {
+        const row = `
+            <tr>
+                <td>${msg.name}</td>
+                <td>${msg.email}</td>
+                <td>${msg.subject}</td>
+                <td>${msg.date}</td>
+                <td>
+                    <button class="btn btn-view" onclick="viewMessage(${msg.id})">Görüntüle</button>
+                    <button class="btn btn-del" onclick="deleteMessage(${msg.id})">Sil</button>
+                </td>
+            </tr>
+        `;
+        table.innerHTML += row;
+    });
+}
+
+function viewMessage(id) {
+    const messages = JSON.parse(localStorage.getItem("messages") || "[]");
+    const msg = messages.find(m => m.id === id);
+
+    document.getElementById("modalName").textContent = msg.name;
+    document.getElementById("modalEmail").textContent = msg.email;
+    document.getElementById("modalSubject").textContent = msg.subject;
+    document.getElementById("modalMessage").textContent = msg.message;
+
+    document.getElementById("modalBg").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modalBg").style.display = "none";
+}
+
+function deleteMessage(id) {
+    let messages = JSON.parse(localStorage.getItem("messages") || "[]");
+    messages = messages.filter(m => m.id !== id);
+    localStorage.setItem("messages", JSON.stringify(messages));
+    loadMessages();
+}
+</script>
+
+</body>
+</html>

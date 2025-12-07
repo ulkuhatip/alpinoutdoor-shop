@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Paneli | Grafikler</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body { display: flex; font-family: 'Poppins', sans-serif; }
+
+        .sidebar {
+            width: 230px; background: #1f1f1f; color: #fff;
+            height: 100vh; position: fixed; top: 0; left: 0;
+            padding-top: 40px;
+        }
+        .sidebar h3 { text-align:center; font-weight:600; margin-bottom:30px; }
+        .sidebar a {
+            display:block; padding:12px 20px; color:#fff; text-decoration:none;
+        }
+        .sidebar a:hover { background:#444; }
+
+        .admin-content {
+            margin-left:230px; width:calc(100% - 230px); padding:30px;
+        }
+
+        .topbar {
+            background:#fafafa; border-bottom:1px solid #ddd;
+            padding:15px 20px; font-size:18px; font-weight:500; margin-bottom:20px;
+        }
+
+        .chart-container {
+            width: 70%;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h3>Admin Panel</h3>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="products.html">📦 Ürün Yönetimi</a>
+    <a href="messages.html">✉ Mesajlar</a>
+    <a href="stats.html">📈 Grafikler</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="admin-content">
+
+    <div class="topbar">Grafiksel İstatistikler</div>
+
+    <h4 style="text-align:center; font-weight:600; margin-bottom:40px;">Ürün Kategorilerine Göre Satış</h4>
+
+    <!-- BAR CHART -->
+    <div class="chart-container">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <h4 style="text-align:center; font-weight:600; margin-bottom:40px;">Kategorilere Göre Ürün Dağılımı</h4>
+
+    <!-- PIE CHART -->
+    <div class="chart-container">
+        <canvas id="pieChart"></canvas>
+    </div>
+
+</div>
+
+<script>
+/* ================= BAR CHART ================= */
+const bar = document.getElementById('barChart');
+
+new Chart(bar, {
+    type: 'bar',
+    data: {
+        labels: ['Çadır', 'Giyim', 'Ayakkabı', 'Polar', 'Pantolon'],
+        datasets: [{
+            label: 'Satış Miktarı',
+            data: [120, 200, 90, 60, 150],
+            backgroundColor: ['#1e90ff', '#ff6347', '#32cd32', '#ffa500', '#6a5acd']
+        }]
+    }
+});
+
+/* ================= PIE CHART ================= */
+const pie = document.getElementById('pieChart');
+
+new Chart(pie, {
+    type: 'pie',
+    data: {
+        labels: ['Çadır', 'Giyim', 'Ayakkabı', 'Polar', 'Pantolon'],
+        datasets: [{
+            data: [15, 25, 10, 8, 12],
+            backgroundColor: ['#1e90ff', '#ff6347', '#32cd32', '#ffa500', '#6a5acd']
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

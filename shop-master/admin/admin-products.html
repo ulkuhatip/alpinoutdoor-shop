@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ürün Yönetimi | AlpinOutdoor Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body { margin:0; font-family:Poppins, sans-serif; background:#f4f4f4; }
+        
+        .sidebar {
+            width:230px; height:100vh; background:#222; color:#fff;
+            position:fixed; left:0; top:0; padding:20px;
+        }
+        .sidebar a {
+            display:block; padding:12px; color:#ddd;
+            text-decoration:none; margin-bottom:8px;
+        }
+        .sidebar a:hover { background:#b48d3f; color:#fff; }
+        
+        .main { margin-left:250px; padding:30px; }
+
+        h1 { font-size:26px; font-weight:600; }
+
+        .form-box {
+            background:#fff; padding:20px; border-radius:10px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-bottom:30px;
+        }
+
+        input, select {
+            width:100%; padding:10px; margin-bottom:15px;
+            border-radius:6px; border:1px solid #bbb;
+        }
+
+        button {
+            padding:10px 18px; border:none; background:#b48d3f; color:#fff;
+            border-radius:6px; cursor:pointer; font-size:14px;
+        }
+
+        table {
+            width:100%; border-collapse:collapse; background:#fff;
+            border-radius:10px; overflow:hidden;
+        }
+        th, td { padding:12px; border-bottom:1px solid #ddd; }
+        th { background:#b48d3f; color:#fff; }
+
+        .btn-del { background:#c0392b; padding:6px 10px; border-radius:5px; color:#fff; cursor:pointer; }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>Admin</h2>
+
+    <a href="admin-dashboard.html">📊 Dashboard</a>
+    <a href="admin-products.html">🛒 Ürün Yönetimi</a>
+    <a href="admin-messages.html">📨 Mesajlar</a>
+    <a href="index.html">🏠 Siteye Dön</a>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main">
+    <h1>Ürün Yönetimi</h1>
+
+    <!-- ÜRÜN EKLEME FORMU -->
+    <div class="form-box">
+        <h3>Yeni Ürün Ekle</h3>
+
+        <input type="text" id="productName" placeholder="Ürün Adı">
+        
+        <select id="productCategory">
+            <option value="Çadır">Çadır</option>
+            <option value="Giyim">Giyim</option>
+            <option value="Teknik">Teknik Malzemeler</option>
+            <option value="Ayakkabı">Ayakkabı</option>
+        </select>
+
+        <input type="number" id="productPrice" placeholder="Fiyat (TL)">
+        <input type="text" id="productImage" placeholder="Ürün Resim URL">
+
+        <button onclick="addProduct()">Ürün Ekle</button>
+    </div>
+
+
+    <!-- ÜRÜN LİSTESİ -->
+    <table>
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th>Kategori</th>
+                <th>Fiyat</th>
+                <th>Resim</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody id="productTable"></tbody>
+    </table>
+
+</div>
+
+
+
+
+<!-- SCRIPT -->
+<script>
+function loadProducts() {
+    const productTable = document.getElementById("productTable");
+    productTable.innerHTML = "";
+
+    const products = JSON.parse(localStorage.getItem("products") || "[]");
+
+    products.forEach(p => {
+        productTable.innerHTML += `
+            <tr>
+                <td>${p.name}</td>
+                <td>${p.category}</td>
+                <td>${p.price} TL</td>
+                <td><img src="${p.image}" width="60"></td>
+                <td><button class="btn-del" onclick="deleteProduct(${p.id})">Sil</button></td>
+            </tr>
+        `;
+    });
+}
+
+function addProduct() {
+    const name = document.getElementById("productName").value.trim();
+    const category = document.getElementById("productCategory").value;
+    const price = document.getElementById("productPrice").value;
+    const image = document.getElementById("productImage").value;
+
+    if (!name || !price || !image) {
+        alert("Lütfen tüm alanları doldurun!");
+        return;
+    }
+
+    const products = JSON.parse(localStorage.getItem("products") || "[]");
+
+    products.push({
+        id: Date.now(),
+        name,
+        category,
+        price,
+        image
+    });
+
+    localStorage.setItem("products", JSON.stringify(products));
+
+    alert("Ürün eklendi!");
+    loadProducts();
+}
+
+function deleteProduct(id) {
+    let products = JSON.parse(localStorage.getItem("products") || "[]");
+    products = products.filter(p => p.id !== id);
+    localStorage.setItem("products", JSON.stringify(products));
+    loadProducts();
+}
+
+loadProducts();
+</script>
+
+
+</body>
+</html>

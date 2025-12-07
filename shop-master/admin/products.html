@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Ürün Yönetimi</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <style>
+        body { background:#f5f5f5; }
+        .card { margin-top: 30px; }
+        .table img { width: 60px; border-radius:6px; }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2 class="text-center mt-4 mb-4">Ürün Yönetimi</h2>
+
+    <!-- Ürün Ekleme Formu -->
+    <div class="card">
+        <div class="card-header bg-dark text-white">Yeni Ürün Ekle</div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <input id="pName" class="form-control" placeholder="Ürün Adı">
+                </div>
+                <div class="col-md-3">
+                    <input id="pPrice" class="form-control" placeholder="Fiyat (TL)">
+                </div>
+                <div class="col-md-3">
+                    <input id="pImage" class="form-control" placeholder="Resim URL">
+                </div>
+                <div class="col-md-2">
+                    <button onclick="addProduct()" class="btn btn-success btn-block">
+                        Ekle
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Ürün Listesi -->
+    <div class="card">
+        <div class="card-header bg-secondary text-white">Ürün Listesi</div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Resim</th>
+                    <th>Ürün Adı</th>
+                    <th>Fiyat</th>
+                    <th>İşlemler</th>
+                </tr>
+                </thead>
+                <tbody id="productTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let products = JSON.parse(localStorage.getItem("products") || "[]");
+
+    function saveProducts() {
+        localStorage.setItem("products", JSON.stringify(products));
+    }
+
+    function renderProducts() {
+        const table = document.getElementById("productTable");
+        table.innerHTML = "";
+
+        products.forEach((p, index) => {
+            table.innerHTML += `
+                <tr>
+                    <td><img src="${p.image}"></td>
+                    <td>${p.name}</td>
+                    <td>${p.price} TL</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="editProduct(${index})">Düzenle</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">Sil</button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+
+    function addProduct() {
+        const name = document.getElementById("pName").value;
+        const price = document.getElementById("pPrice").value;
+        const image = document.getElementById("pImage").value;
+
+        if (!name || !price || !image) {
+            alert("Lütfen tüm alanları doldurun.");
+            return;
+        }
+
+        products.push({ name, price, image });
+        saveProducts();
+        renderProducts();
+
+        document.getElementById("pName").value = "";
+        document.getElementById("pPrice").value = "";
+        document.getElementById("pImage").value = "";
+    }
+
+    function deleteProduct(index) {
+        products.splice(index, 1);
+        saveProducts();
+        renderProducts();
+    }
+
+    function editProduct(index) {
+        const p = products[index];
+
+        const newName = prompt("Yeni ürün adı:", p.name);
+        const newPrice = prompt("Yeni fiyat:", p.price);
+        const newImage = prompt("Yeni resim URL:", p.image);
+
+        if (newName && newPrice && newImage) {
+            products[index] = { name: newName, price: newPrice, image: newImage };
+            saveProducts();
+            renderProducts();
+        }
+    }
+
+    renderProducts();
+</script>
+
+</body>
+</html>
