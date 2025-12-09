@@ -9,6 +9,7 @@
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="gettemplates.co" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
 
 
@@ -53,6 +54,8 @@
 
 
 	</head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 	<body>
 		
 	<div class="fh5co-loader"></div>
@@ -186,90 +189,62 @@
 </div>
 <div class="container" style="margin-top:40px;">
     <h2>📢 Duyurular</h2>
-    <ul id="annList"></ul>
-
-    <button id="loadMoreBtn" style="
-        display:none;
-        margin-top:15px;
-        padding:10px 20px;
-        background:#b48d3f;
-        color:#fff;
-        border:none;
-        border-radius:6px;
-        cursor:pointer;">
+    <div id="annContainer"></div>
+    
+    <button id="loadMoreBtn" class="ann-load-more" style="display:none;">
         Daha Fazla Göster
     </button>
 </div>
 
+
 <div id="latestAnnBox"></div>
 
-<script>
 
+<script>
 fetch("data/announcements.json")
-  .then(res => res.json())
+  .then(r => r.json())
   .then(anns => {
 
-    // Son eklenen üste gelsin
     anns.sort((a,b) => b.id - a.id);
 
-    const list = document.getElementById("annList");
-    const latestBox = document.getElementById("latestAnnBox");
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    const container = document.getElementById("annContainer");
+    const loadMore = document.getElementById("loadMoreBtn");
 
-    let perPage = 5;
-    let currentIndex = 0;
+    let perPage = 4;
+    let current = 0;
 
-    // 1) En yeni duyuruyu üstte özel kutuda göster
-    if (anns.length > 0) {
-        let last = anns[0];
-        latestBox.innerHTML = `
-            <a href="announcement.html?id=${last.id}" class="container" style="margin-top:40px; margin-bottom:40px; display:block; text-decoration:none;">
-                <div style="
-                    background:#b48d3f;
-                    color:white;
-                    padding:15px;
-                    text-align:center;
-                    font-size:18px;
-                    font-weight:600;
-                    border-radius:8px;
-                    margin:20px 0;
-                    cursor:pointer;">
-                    📢 Yeni Duyuru: ${last.title}
-                </div>
-            </a>
-        `;
-    }
+    function loadCards() {
+        let limit = current + perPage;
 
-    // 2) İlk 5 duyuruyu yükle
-    function loadAnnouncements() {
-        let limit = currentIndex + perPage;
-
-        for (let i = currentIndex; i < limit && i < anns.length; i++) {
+        for (let i = current; i < limit && i < anns.length; i++) {
             let a = anns[i];
-            list.innerHTML += `
-                <li style="margin:8px 0;">
-                    <a href="announcement.html?id=${a.id}">
-                        <b>${a.title}</b> - <small>${a.date}</small>
-                    </a>
-                </li>
+
+            container.innerHTML += `
+                <div class="ann-card" onclick="location.href='announcement.html?id=${a.id}'">
+                    <div class="ann-icon">📢</div>
+
+                    <div class="ann-text">
+                        <div class="ann-title">${a.title}</div>
+                        <div class="ann-desc">${a.content.substring(0, 70)}...</div>
+                    </div>
+
+                    <div class="ann-arrow">➜</div>
+                </div>
             `;
         }
 
-        currentIndex = limit;
+        current = limit;
 
-        if (currentIndex < anns.length) {
-            loadMoreBtn.style.display = "block";
-        } else {
-            loadMoreBtn.style.display = "none";
-        }
+        loadMore.style.display = current < anns.length ? "block" : "none";
     }
 
-    loadAnnouncements();
+    loadCards();
+    loadMore.addEventListener("click", loadCards);
 
-    loadMoreBtn.addEventListener("click", loadAnnouncements);
-
-  });
+});
 </script>
+
+
 
     <div id="fh5co-services" class="fh5co-bg-section">
     <div class="container">
@@ -368,20 +343,63 @@ fetch("data/announcements.json")
 			</div>
 		</div>
 	</div>
-
-	<!-- FOOTER  -->
-	<footer id="fh5co-footer" role="contentinfo" style="background:#f4f4f4; padding:40px 0;">
+    <section class="stats-section">
     <div class="container">
-        <div class="row">
+        <h2 class="stats-title">Sayılarla <span>AlpinOutdoor®</span></h2>
 
-            <div class="col-md-4">
-                <h3>AlpinOutdoor®</h3>
-                <p>Dağcılık, kampçılık ve yüksek irtifa ekipmanlarında uzman online mağaza.</p>
+        <div class="stats-grid">
+
+            <div class="stat-box">
+                <h3>1.250+</h3>
+                <p>Global Müşteri</p>
             </div>
 
-            <div class="col-md-2 col-md-offset-1">
+            <div class="stat-box">
+                <h3>540+</h3>
+                <p>Profesyonel Ürün</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>3.900+</h3>
+                <p>Yıllık Satış</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>870+</h3>
+                <p>Müşteri Yorumu</p>
+            </div>
+
+        </div>
+
+        <div class="chart-container">
+            <canvas id="alpinChart"></canvas>
+        </div>
+
+    </div>
+</section>
+
+
+<footer class="alpin-footer">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-social">
+    <a href="https://facebook.com" target="_blank" rel="noopener">
+        <i class="icon-facebook"></i>
+    </a>
+    <a href="https://twitter.com" target="_blank" rel="noopener">
+        <i class="icon-twitter"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener">
+        <i class="icon-instagram"></i>
+    </a>
+</div>
+
+
+            <div class="footer-block">
                 <h4>Kategoriler</h4>
-                <ul class="fh5co-footer-links">
+                <ul>
                     <li><a href="cadir.html">Çadırlar</a></li>
                     <li><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
                     <li><a href="services.html">Giyim</a></li>
@@ -389,24 +407,25 @@ fetch("data/announcements.json")
                 </ul>
             </div>
 
-            <div class="col-md-2">
+            <div class="footer-block">
                 <h4>Site</h4>
-                <ul class="fh5co-footer-links">
+                <ul>
                     <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
                     <li><a href="contact.html">İletişim</a></li>
                     <li><a href="cart.html">Sepet</a></li>
                 </ul>
             </div>
 
-            
-
         </div>
 
-        <div class="row text-center" style="margin-top:30px;">
-            <p style="color:#999;">© 2025 AlpinOutdoor®. Tüm Hakları Saklıdır.</p>
+        <div class="footer-bottom">
+            © 2025 AlpinOutdoor®. Tüm Hakları Saklıdır.
         </div>
+
     </div>
 </footer>
+
 
 	</div>
 
@@ -433,4 +452,40 @@ fetch("data/announcements.json")
 
 	</body>
 </html>
+<script>
+const ctx = document.getElementById('alpinChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Global Müşteri', 'Ürün', 'Yıllık Satış', 'Müşteri Yorumu'],
+        datasets: [{
+            label: 'AlpinOutdoor® İstatistikleri',
+            data: [1250, 540, 3900, 870],
+            backgroundColor: [
+                '#b48d3f',
+                '#6ba889',
+                '#c29a5b',
+                '#7fbf7f'
+            ],
+            borderRadius: 8,
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: { color: "#ddd" }
+            },
+            x: {
+                grid: { display: false }
+            }
+        },
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});
+</script>
+
 

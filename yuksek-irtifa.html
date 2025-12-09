@@ -17,57 +17,62 @@
 	<link rel="stylesheet" href="css/style.css?v=100">
 
 	<script src="js/modernizr-2.6.2.min.js"></script>
-</head>
+	<script src="js/jquery.waypoints.min.js"></script>
 
-<body>
-
-
-
-<div id="page">
-
-	<!-- NAV -->
+	</head>
+	<body>
+		
 	<nav class="fh5co-nav" role="navigation">
-	    <div class="container">
-	        <div class="row">
+    <div class="container">
+        <div class="row">
 
-	            <div class="col-md-3 col-xs-2">
-	                <div id="fh5co-logo"><a href="index.html">AlpinOutdoor®</a></div>
-	            </div>
+            <div class="col-md-3 col-xs-2">
+                <div id="fh5co-logo"><a href="index.html">AlpinOutdoor®</a></div>
+            </div>
 
-	            <div class="col-md-6 col-xs-6 text-center menu-1">
-	                <ul>
-	                    <li><a href="cadir.html">Çadırlar</a></li>
-	                    <li class="active"><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
-                        <li class="active"><a href="services.html">GİYİM</a></li>
-	                    
+            <div class="col-md-6 col-xs-6 text-center menu-1">
+                <ul>
+                    <li><a href="cadir.html">Çadırlar</a></li>
+                    <li><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
 
-	                    <li><a href="teknik.html">Teknik Malzemeler</a></li>
-	                    <li><a href="contact.html">İletişim</a></li>
+                    <li class="has-dropdown">
+                        <a href="services.html">Giyim</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Montlar & Ceketler</a></li>
+                            <li><a href="#">Pantolonlar</a></li>
+                            <li><a href="#">Orta Katmanlar</a></li>
+                            <li><a href="#">Ayakkabılar</a></li>
+                            <li><a href="#">Termal İç Giyim</a></li>
+                        </ul>
+                    </li>
 
-	                    <li class="has-dropdown">
-	                        <a href="#">Hakkımızda</a>
-	                        <ul class="dropdown">
-	                            <li><a href="about.html">Vizyon & Misyon</a></li>
-	                            <li><a href="admin/login.html">Admin</a></li>
-	                        </ul>
-	                    </li>
+                    <li><a href="teknik.html">Teknik Malzemeler</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+					<li class="has-dropdown">
+    <a href="#">Hakkımızda</a>
+    <ul class="dropdown">
+        <li><a href="about.html">Vizyon & Misyon</a></li>
+        <li><a href="admin/login.html">Admin</a></li>
+    </ul>
+</li>
 
-	                </ul>
-	            </div>
+                </ul>
+            </div>
 
-	            <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
-	                <ul>
-	                    <li class="shopping-cart">
-	                        <a href="cart.html" class="cart">
-	                            <span><small id="cartCount">0</small><i class="icon-shopping-cart"></i></span>
-	                        </a>
-	                    </li>
-	                </ul>
-	            </div>
+            <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
+                <ul>
+                    <li class="shopping-cart">
+                        <a href="cart.html" class="cart">
+                            <span><small id="cartCount">0</small><i class="icon-shopping-cart"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-	        </div>
-	    </div>
-	</nav>
+        </div>
+    </div>
+</nav>
+
 
 	<!-- CONTENT WRAPPER -->
 	<div class="container" style="margin-top:150px; margin-bottom:60px;">
@@ -144,21 +149,53 @@
 	<!-- CONTENT END -->
 
 
-	<!-- FOOTER -->
-	<footer id="fh5co-footer" role="contentinfo">
-	    <div class="container">
-	        <div class="row copyright">
-	            <div class="col-md-12 text-center">
-	                <p>
-	                    © 2025 AlpinOutdoor® — Tüm Hakları Saklıdır<br>
-	                    Tasarım & Kodlama: Ülkü Hatip
-	                </p>
-	            </div>
-	        </div>
-	    </div>
-	</footer>
+<footer class="alpin-footer">
+    <div class="container">
 
-</div> <!-- #page -->
+        <div class="footer-grid">
+
+            <div class="footer-block">
+                <h3 class="footer-logo">AlpinOutdoor®</h3>
+                <p class="footer-text">
+                    Outdoor ekipmanları ve dağcılık malzemelerinde güvenilir marka.
+                </p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank"><i class="icon-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="icon-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-block">
+                <h4>Kategoriler</h4>
+                <ul>
+                    <li><a href="cadir.html">Çadırlar</a></li>
+                    <li><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
+                    <li><a href="services.html">Giyim</a></li>
+                    <li><a href="teknik.html">Teknik Malzemeler</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-block">
+                <h4>Site</h4>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="cart.html">Sepet</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 AlpinOutdoor®. Tüm Hakları Saklıdır.
+        </div>
+
+    </div>
+</footer>
+
+
 
 <!-- JS -->
 <script src="js/jquery.min.js"></script>

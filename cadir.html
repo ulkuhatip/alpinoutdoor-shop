@@ -110,67 +110,86 @@
 </nav>
 
     <!-- ======= SAYFA İÇİ ======= -->
-    <div class="container" style="margin-top:120px; margin-bottom:120px;">
-    <div class="row">
-        <!-- SOLDA FİLTRELER -->
-        <div class="col-md-3">
-            <h3>Filtrele</h3>
-            <div class="panel panel-default">
-                <div class="panel-heading"><strong>Mevsim</strong></div>
-                <div class="panel-body">
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-season" value="3"> 3 Mevsim</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-season" value="4"> 4 Mevsim</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-season" value="5"> 5 Mevsim</label>
-                    </div>
-                </div>
-            </div>
+<!-- ===================== YENİ FİLTRE TASARIMI ===================== -->
+<div class="container" style="margin-top:120px; margin-bottom:120px;">
+<div class="row"></div>
+<div class="col-md-3">
+<style>
+    .filter-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border-left: 4px solid #b48d3f;
+        transition: 0.2s ease;
+    }
 
-            <div class="panel panel-default">
-                <div class="panel-heading"><strong>Kişi Sayısı</strong></div>
-                <div class="panel-body">
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-person" value="1"> 1 Kişilik</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-person" value="2"> 2 Kişilik</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-person" value="3"> 3 Kişilik</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-person" value="4"> 4+ Kişilik</label>
-                    </div>
-                </div>
-            </div>
+    .filter-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    }
 
-            <div class="panel panel-default">
-                <div class="panel-heading"><strong>Marka</strong></div>
-                <div class="panel-body">
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-brand" value="Evolite"> Evolite</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-brand" value="Husky"> Husky</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-brand" value="Naturehike"> Naturehike</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-brand" value="Trimm"> Trimm</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" class="filter-brand" value="TNF"> The North Face</label>
-                    </div>
-                </div>
-            </div>
+    .filter-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
 
-            <!-- Not: Filtreler şimdilik sadece görsel, istersen JS ile çalıştırırız -->
-        </div>
+    .filter-title i {
+        font-size: 20px;
+        color: #b48d3f;
+    }
+
+    .filter-card label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 15px;
+        color: #444;
+        margin-bottom: 8px;
+        cursor: pointer;
+    }
+
+    .filter-card input {
+        transform: scale(1.2);
+        margin-right: 6px;
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="filter-card">
+    <div class="filter-title"><i class="icon-filter"></i> Mevsim</div>
+    <label><input type="checkbox" class="filter-season" value="3"> 3 Mevsim</label>
+    <label><input type="checkbox" class="filter-season" value="4"> 4 Mevsim</label>
+    <label><input type="checkbox" class="filter-season" value="5"> 5 Mevsim</label>
+</div>
+
+<div class="filter-card">
+    <div class="filter-title"><i class="icon-users"></i> Kişi Sayısı</div>
+    <label><input type="checkbox" class="filter-person" value="1"> 1 Kişilik</label>
+    <label><input type="checkbox" class="filter-person" value="2"> 2 Kişilik</label>
+    <label><input type="checkbox" class="filter-person" value="3"> 3 Kişilik</label>
+    <label><input type="checkbox" class="filter-person" value="4"> 4+ Kişilik</label>
+</div>
+
+<div class="filter-card">
+    <div class="filter-title"><i class="icon-tag"></i> Marka</div>
+    <label><input type="checkbox" class="filter-brand" value="Evolite"> Evolite</label>
+    <label><input type="checkbox" class="filter-brand" value="Husky"> Husky</label>
+    <label><input type="checkbox" class="filter-brand" value="Naturehike"> Naturehike</label>
+    <label><input type="checkbox" class="filter-brand" value="Trimm"> Trimm</label>
+    <label><input type="checkbox" class="filter-brand" value="TNF"> The North Face</label>
+</div>
+</div>
+
+<!-- ===================== FİLTRE TASARIMI BİTİŞ ===================== -->
+
 
         <!-- SAĞDA ÜRÜN LİSTESİ -->
         <div class="col-md-9">
@@ -336,34 +355,50 @@
 
 
 <!-- FOOTER -->
-<footer id="fh5co-footer" role="contentinfo">
+<footer class="alpin-footer">
     <div class="container">
-        <div class="row row-padded">
-            <div class="col-md-4">
-                <h3>AlpinOutdoor®</h3>
-                <p>Outdoor & Dağcılık ekipmanlarında uzman marka.</p>
-            </div>
 
-            <div class="col-md-4">
-                <h3>İletişim</h3>
-                <p>Adres burada<br>Telefon: 0000 000 00 00</p>
-            </div>
+        <div class="footer-grid">
 
-            <div class="col-md-4">
-                <h3>Sosyal Medya</h3>
-                <ul class="fh5co-social-icons">
-                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-instagram"></i></a></li>
+            <div class="footer-social">
+    <a href="https://facebook.com" target="_blank" rel="noopener">
+        <i class="icon-facebook"></i>
+    </a>
+    <a href="https://twitter.com" target="_blank" rel="noopener">
+        <i class="icon-twitter"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener">
+        <i class="icon-instagram"></i>
+    </a>
+</div>
+
+
+            <div class="footer-block">
+                <h4>Kategoriler</h4>
+                <ul>
+                    <li><a href="cadir.html">Çadırlar</a></li>
+                    <li><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
+                    <li><a href="services.html">Giyim</a></li>
+                    <li><a href="teknik.html">Teknik Malzemeler</a></li>
                 </ul>
             </div>
+
+            <div class="footer-block">
+                <h4>Site</h4>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="cart.html">Sepet</a></li>
+                </ul>
+            </div>
+
         </div>
 
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>&copy; 2025 AlpinOutdoor®. Designed by Ülkü Hatip</p>
-            </div>
+        <div class="footer-bottom">
+            © 2025 AlpinOutdoor®. Tüm Hakları Saklıdır.
         </div>
+
     </div>
 </footer>
 
@@ -394,6 +429,51 @@ function updateCartCount() {
 }
 
 updateCartCount();
+</script>
+
+<script>
+function applyFilters() {
+    const selectedSeasons = [...document.querySelectorAll('.filter-season:checked')]
+        .map(cb => cb.value);
+
+    const selectedPersons = [...document.querySelectorAll('.filter-person:checked')]
+        .map(cb => cb.value);
+
+    const selectedBrands = [...document.querySelectorAll('.filter-brand:checked')]
+        .map(cb => cb.value);
+
+    const products = document.querySelectorAll('.product-list-item');
+
+    products.forEach(product => {
+        const season = product.dataset.season;
+        const person = product.dataset.person;
+        const brand = product.dataset.brand;
+
+        let show = true;
+
+        // Mevsim Filtresi
+        if (selectedSeasons.length > 0 && !selectedSeasons.includes(season)) {
+            show = false;
+        }
+
+        // Kişi Sayısı Filtresi
+        if (selectedPersons.length > 0 && !selectedPersons.includes(person)) {
+            show = false;
+        }
+
+        // Marka Filtresi
+        if (selectedBrands.length > 0 && !selectedBrands.includes(brand)) {
+            show = false;
+        }
+
+        // Göster/Gizle
+        product.style.display = show ? "block" : "none";
+    });
+}
+
+// Checkbox’lara tıklanınca filtreyi çalıştır
+document.querySelectorAll('.filter-season, .filter-person, .filter-brand')
+    .forEach(cb => cb.addEventListener("change", applyFilters));
 </script>
 
 </body>

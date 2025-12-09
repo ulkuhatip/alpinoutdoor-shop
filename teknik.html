@@ -21,8 +21,8 @@
 
 <body>
 
-	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
+<!-- NAVBAR BAŞLANGIÇ -->
+<nav class="fh5co-nav" role="navigation">
     <div class="container">
         <div class="row">
 
@@ -36,135 +36,179 @@
                     <li><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
 
                     <li class="has-dropdown">
-                        <a href="services.html">Giyim</a>
+                        <a href="#">Giyim</a>
                         <ul class="dropdown">
-                            <li><a href="#">Montlar & Ceketler</a></li>
-                            <li><a href="#">Pantolonlar</a></li>
-                            <li><a href="#">Orta Katmanlar</a></li>
-                            <li><a href="#">Ayakkabılar</a></li>
-                            <li><a href="#">Termal İç Giyim</a></li>
+                            <li><a href="montlar.html">Montlar & Ceketler</a></li>
+                            <li><a href="pantolonlar.html">Pantolonlar</a></li>
+                            <li><a href="orta-katmanlar.html">Orta Katmanlar</a></li>
+                            <li><a href="ayakkabilar.html">Ayakkabılar</a></li>
+                            <li><a href="termal.html">Termal İç Giyim</a></li>
                         </ul>
                     </li>
 
                     <li><a href="teknik.html">Teknik Malzemeler</a></li>
                     <li><a href="contact.html">İletişim</a></li>
-					<li class="has-dropdown">
-    <a href="#">Hakkımızda</a>
-    <ul class="dropdown">
-        <li><a href="about.html">Vizyon & Misyon</a></li>
-        <li><a href="admin/login.html">Admin</a></li>
-    </ul>
-</li>
 
+                    <li class="has-dropdown">
+                        <a href="#">Hakkımızda</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html">Vizyon & Misyon</a></li>
+                            <li><a href="admin/login.html">Admin</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
-                <!-- Search + Sepet -->
-                <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
-                    <ul>
-                        <li class="search">
-                            <div class="input-group">
-                                <input type="text" placeholder="Search..">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
-                                </span>
-                            </div>
-                        </li>
-                        <li class="shopping-cart">
-                            <a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a>
-                        </li>
-                    </ul>
-                </div>
-
+            <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
+                <ul>
+                    <li class="search">
+                        <div class="input-group">
+                            <input type="text" placeholder="Ara...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary"><i class="icon-search"></i></button>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="shopping-cart">
+                        <a href="cart.html" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a>
+                    </li>
+                </ul>
             </div>
+
         </div>
-    </nav>
-    <!-- ▬▬▬ NAVBAR BİTİŞ ▬▬▬ -->
+    </div>
+</nav>
+<!-- NAVBAR BİTİŞ -->
 
-    <!-- ▬▬▬ ÜRÜN LİSTE ▬▬▬ -->
-    <div class="product-list row" data-season="5" style="margin-bottom:35px;">
 
-    <div class="col-md-4">
-    <a href="tnf-inferno40.html">
-        <div class="product-grid" style="
-            background-image: url('images/nepalpant.jpg');
-            height: 240px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;">
+
+
+<!-- ▬▬▬ ÜRÜN LİSTESİ (BİREBİR SENİN İÇERİĞİN) ▬▬▬ -->
+<div class="container" style="margin-top:40px;">
+
+    <!-- ÜRÜN 1 -->
+    <div class="row product-list" style="margin-bottom:35px;">
+
+        <div class="col-md-4">
+            <a href="tnf-inferno40.html">
+                <div class="product-grid"
+                    style="
+                        background-image: url('images/nepalpant.jpg');
+                        height: 240px;
+                        background-size: cover;
+                        background-position: center;
+                        border-radius: 10px;">
+                </div>
+            </a>
         </div>
-    </a>
-</div>
 
+        <div class="col-md-8">
+            <h3><a href="nepal.html">Nepal Trekking ve Tırmanış Pantolonu</a></h3>
+            <p class="text-muted">High Mountain Nepal pantolon, dört mevsim kullanabileceğiniz bir teknik pantolondur..</p>
+            <p><span class="price">2.750,00 TL</span></p>
 
-    <div class="col-md-8">
-        <h3><a href="nepal.html">Nepal Trekking ve Tırmanış Pantolonu</a></h3>
-        <p class="text-muted">High Mountain Nepal pantolon, dört mevsim kullanabileceğiniz bir teknik pantolondur..</p>
-        <p><span class="price">2.750,00  TL</span></p>
-        <a href="nepal.html" class="btn btn-primary btn-sm">Detayları Gör</a>
-        <button class="btn btn-success btn-sm" onclick="addToCart('Tırmanış Pantolonu', 2750)">Sepete Ekle</button>
+            <a href="nepal.html" class="btn btn-primary btn-sm">Detayları Gör</a>
+            <button class="btn btn-success btn-sm" onclick="addToCart('Tırmanış Pantolonu', 2750)">Sepete Ekle</button>
+        </div>
 
     </div>
 
-</div>
 
-
-        <!-- ÜRÜN 2 -->
-        <div class="row product-list" style="margin-bottom:40px;">
-            <div class="col-md-4">
-                <a href="krampon.html">
-                    <div class="product-grid"
-                         style="background-image:url('images/krampon.jpg'); height:240px; background-size:cover; border-radius:10px;">
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-8">
-                <h3><a href="krampon.html">Petzl Vasak FL Bağlamalı Krampon</a></h3>
-                <p class="text-muted">12 noktasıyla buzullardan kar koridorlarına kadar çeşitli arazilerde iyi bir denge ve ısırma sağlarlar. </p>
-                <p><strong>Fiyat:</strong> 10.290,20  TL</p>
-                <a href="krampon.html" class="btn btn-sm btn-primary">Detayları Gör</a>
-                <button class="btn btn-success btn-sm" onclick="addToCart('Krampon', 12345)">Sepete Ekle</button>
-
-            </div>
+    <!-- ÜRÜN 2 -->
+    <div class="row product-list" style="margin-bottom:40px;">
+        <div class="col-md-4">
+            <a href="krampon.html">
+                <div class="product-grid"
+                     style="background-image:url('images/krampon.jpg'); height:240px; background-size:cover; border-radius:10px;">
+                </div>
+            </a>
         </div>
 
-        <!-- ÜRÜN 3 -->
-        <div class="row product-list" style="margin-bottom:40px;">
-            <div class="col-md-4">
-                <a href="friction.html">
-                    <div class="product-grid"
-                         style="background-image:url('images/friction.jpg'); height:240px; background-size:cover; border-radius:10px;">
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-8">
-                <h3><a href="friction.html">La Sportiva Python Tırmanış Ayakkabısı Turuncu</a></h3>
-                <p class="text-muted"> Python, topuk kancaları sırasında ayağı yerinde tutan, en aşırı kullanım sırasında ayakkabının kaymasını önleyen halka kapatmasıyla ayağa rahat oturan bir ayakkabıdır..</p>
-                <p><strong>Fiyat:</strong> 2.865 TL</p>
-                <a href="friction.html" class="btn btn-sm btn-primary">Detayları Gör</a>
-                <button class="btn btn-success btn-sm" onclick="addToCart('friction', 12345)">Sepete Ekle</button>
+        <div class="col-md-8">
+            <h3><a href="krampon.html">Petzl Vasak FL Bağlamalı Krampon</a></h3>
+            <p class="text-muted">12 noktasıyla buzullardan kar koridorlarına kadar çeşitli arazilerde iyi bir denge sağlar.</p>
+            <p><strong>Fiyat:</strong> 10.290,20 TL</p>
 
+            <a href="krampon.html" class="btn btn-sm btn-primary">Detayları Gör</a>
+            <button class="btn btn-success btn-sm" onclick="addToCart('Krampon', 10290)">Sepete Ekle</button>
+        </div>
+    </div>
+
+
+    <!-- ÜRÜN 3 -->
+    <div class="row product-list" style="margin-bottom:40px;">
+        <div class="col-md-4">
+            <a href="friction.html">
+                <div class="product-grid"
+                     style="background-image:url('images/friction.jpg'); height:240px; background-size:cover; border-radius:10px;">
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-8">
+            <h3><a href="friction.html">La Sportiva Python Tırmanış Ayakkabısı</a></h3>
+            <p class="text-muted">Python modeli topuk kancaları sırasında ayağı yerinde tutan bir tasarıma sahiptir.</p>
+            <p><strong>Fiyat:</strong> 2.865 TL</p>
+
+            <a href="friction.html" class="btn btn-sm btn-primary">Detayları Gör</a>
+            <button class="btn btn-success btn-sm" onclick="addToCart('Python Ayakkabı', 2865)">Sepete Ekle</button>
+        </div>
+    </div>
+
+</div>
+<!-- ▬▬▬ ÜRÜN LİSTESİ BİTİŞ ▬▬▬ -->
+
+
+
+<!-- ▬▬▬ FOOTER ▬▬▬ -->
+<footer class="alpin-footer">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-block">
+                <h3 class="footer-logo">AlpinOutdoor®</h3>
+                <p class="footer-text">
+                    Dağcılık ve yüksek irtifa ekipmanlarında güvenilir, dayanıklı ve yüksek performanslı çözümler.
+                </p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank"><i class="icon-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="icon-instagram"></i></a>
+                </div>
             </div>
+
+            <div class="footer-block">
+                <h4>Kategoriler</h4>
+                <ul>
+                    <li><a href="cadir.html">Çadırlar</a></li>
+                    <li><a href="yuksek-irtifa.html">Yüksek İrtifa</a></li>
+                    <li><a href="services.html">Giyim</a></li>
+                    <li><a href="teknik.html">Teknik Malzemeler</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-block">
+                <h4>Site</h4>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="cart.html">Sepet</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 AlpinOutdoor®. Tüm Hakları Saklıdır.
         </div>
 
     </div>
-    <!-- ▬▬▬ ÜRÜN LİSTE BİTİŞ ▬▬▬ -->
+</footer>
+<!-- ▬▬▬ FOOTER BİTİŞ ▬▬▬ -->
 
-    <!-- ▬▬▬ FOOTER ▬▬▬ -->
-    <footer id="fh5co-footer" role="contentinfo">
-        <div class="container">
-            <div class="row copyright">
-                <div class="col-md-12 text-center">
-                    <p>
-                        © 2025 AlpinOutdoor® — Tüm Hakları Saklıdır<br>
-                        Tasarım & Kodlama: Ülkü Hatip
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-</div> <!-- #page -->
 
 <!-- JS -->
 <script src="js/jquery.min.js"></script>
@@ -185,7 +229,7 @@ function addToCart(name, price) {
 function updateCartCount() {
     const count = cart.length;
     const cartIcon = document.querySelector(".shopping-cart small");
-    if(cartIcon) cartIcon.textContent = count;
+    if (cartIcon) cartIcon.textContent = count;
 }
 
 updateCartCount();

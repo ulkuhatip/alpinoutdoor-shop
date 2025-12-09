@@ -2349,5 +2349,395 @@ body {
     background:#9e7532;
 }
 
+/* DUYURU KARTI */
+.ann-card {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    background: #f7f7f7;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: .25s ease;
+    cursor: pointer;
+    border: 1px solid #eee;
+}
 
+.ann-card:hover {
+    background: #ececec;
+    transform: translateX(5px);
+}
 
+.ann-icon {
+    width: 55px;
+    height: 55px;
+    background: #e5d2a4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 18px;
+}
+
+.ann-text { flex: 1; }
+
+.ann-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.ann-desc {
+    font-size: 14px;
+    color: #666;
+}
+
+.ann-arrow {
+    font-size: 22px;
+    color: #777;
+    margin-left: 12px;
+    transition: .25s ease;
+}
+
+.ann-card:hover .ann-arrow {
+    color: #333;
+    transform: translateX(5px);
+}
+
+.ann-load-more {
+    background: #b48d3f;
+    color: white;
+    font-weight: 600;
+    border: none;
+    margin-top: 20px;
+    padding: 10px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.ann-load-more:hover {
+    background: #9d7a34;
+}
+.about-container {
+    max-width: 900px;
+    margin: 150px auto 80px;
+    background: #fff;
+    padding: 50px 55px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    font-family: Poppins, sans-serif;
+}
+
+.about-container h1 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #2e2e2e;
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+/* Bölümler */
+.info-block {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    background: #fafafa;
+    padding: 25px 25px;
+    border-radius: 12px;
+    border-left: 4px solid #b48d3f;
+}
+
+.info-block .icon {
+    font-size: 36px;
+    color: #b48d3f;
+    min-width: 50px;
+}
+
+.info-block h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.info-block p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Değerler listesi */
+.values-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.values-list li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Alıntı kutusu */
+.highlight-box {
+    margin-top: 40px;
+    font-size: 18px;
+    line-height: 1.7;
+    padding: 25px 30px;
+    border-left: 4px solid #b48d3f;
+    background: #f4efe4;
+    border-radius: 8px;
+    text-align: center;
+    color: #5a4c2e;
+}
+.stats-section {
+    padding: 80px 0;
+    background: #fafafa;
+}
+
+.stats-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.stats-title span {
+    color: #b48d3f;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 25px 30px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.09);
+    width: 200px;
+}
+
+.stat-box h3 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #b48d3f;
+}
+
+.stat-box p {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #444;
+}
+
+.chart-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* === PREMIUM FOOTER TASARIMI === */
+
+.alpin-footer {
+    background: #f5f5f5;
+    padding: 60px 0 40px;
+    margin-top: 60px;
+    font-family: Poppins, sans-serif;
+    border-top: 1px solid #ddd;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-block h3.footer-logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 260px;
+}
+
+.footer-block h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.footer-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-block ul li {
+    margin-bottom: 8px;
+}
+
+.footer-block ul li a {
+    color: #555;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.footer-block ul li a:hover {
+    color: #b48d3f;
+    padding-left: 4px;
+}
+
+/* Sosyal Medya */
+.footer-social a {
+    font-size: 20px;
+    margin-right: 12px;
+    color: #555;
+    transition: .2s ease;
+}
+
+.footer-social a:hover {
+    color: #b48d3f;
+}
+
+/* Alt Yazı */
+.footer-bottom {
+    text-align: center;
+    margin-top: 35px;
+    color: #777;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-block {
+        margin-bottom: 30px;
+    }
+}
+
+/* ===== RESPONSIVE FLEXSLIDER DÜZELTMESİ ===== */
+
+@media (max-width: 991px) {
+    #fh5co-hero .slider-text {
+        padding: 0 20px !important;
+        text-align: center;
+        height: auto !important;
+    }
+
+    .slider-text-inner .desc {
+        padding: 20px 15px !important;
+        background: rgba(0,0,0,0.45);
+        border-radius: 12px;
+    }
+
+    #fh5co-hero .slider-text-inner h2 {
+        font-size: 22px !important;
+        line-height: 1.3;
+    }
+
+    #fh5co-hero .slider-text-inner p {
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-slide video {
+        object-fit: cover;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .hero-content .motto {
+        font-size: 28px !important;
+    }
+
+    .hero-content .tagline {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .slider-text-inner .desc {
+        font-size: 14px !important;
+    }
+}
+/* === FİLTRE PANELİ TASARIMI === */
+
+.filter-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: 0.25s ease;
+}
+
+.filter-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.filter-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-title i {
+    color: #b48d3f;
+    font-size: 20px;
+}
+
+/* Checkbox tasarımı */
+.filter-card label {
+    font-size: 15px;
+    color: #444;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.filter-card label:hover {
+    color: #b48d3f;
+}
+
+.filter-card input[type="checkbox"] {
+    accent-color: #b48d3f;
+    transform: scale(1.2);
+    margin-right: 6px;
+}
